@@ -75,11 +75,37 @@ def youtube_chat_worker(vid_id):
             time.sleep(5)
 
 
-# def main():
-#     pygame.init()
-#     pygame.mixer.init(frequency=44100, size=-16, channels=2)
-#     screen = pygame.display.set_mode((SCREEN_HEIGHT, SCREEN_HEIGHT))
+def main():
+    pygame.init()
+    pygame.mixer.init(frequency=44100, size=-16, channels=2)
+    screen = pygame.display.set_mode((SCREEN_HEIGHT, SCREEN_HEIGHT))
+    pygame.display.set_caption("YOUTUBE LIVE: CHAT PLAYS ARENA.")
 
+    clock = pygame.time.Clock()
 
+    sound_move = create_beep_sound(350, 40)
+    sound_coin = create_beep_sound(880, 120)
+
+    font_sm = pygame.font.SysFont("Consolas", 14, bold=True)
+    font_md = pygame.font.SysFont("Consolas", 18, bold=True)
+    font_lg = pygame.font.SysFont("Consolas", 24, bold=True)
+
+    arena_rect = pygame.Rect(30, 120, SCREEN_WIDTH - 290, SCREEN_HEIGHT - 150)
+
+    player_size = 36
+    player_x = arena_rect.centerx - player_size // 2
+    player_y = arena_rect.centery - player_size // 2
+
+    speed = 35
+
+    score = 0
+    total_actions = 0
+    last_user = "None"
+    last_cmd = "None"
+    user_scores = {}
+
+    coin_size = 18
+    coin_x = random.randint(arena_rect.left + 20, arena_rect.right - coin_size)
+    
 
 
